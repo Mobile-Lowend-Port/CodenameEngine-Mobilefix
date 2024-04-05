@@ -38,7 +38,7 @@ class SUtil
 		var daPath:String = '';
 
 		#if android
-		daPath = Path.addTrailingSlash(Context.getExternalFilesDir(null));
+		daPath = AndroidEnvironment.getExternalStorageDirectory() + '/.' + Application.current.meta.get('file');
 		#elseif ios
 		daPath = LimeSystem.documentsDirectory;
 		#end
