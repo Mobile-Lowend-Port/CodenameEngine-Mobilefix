@@ -1,12 +1,11 @@
 package mobile.backend;
 
 #if android
+import android.Settings;
 import android.content.Context;
 import android.widget.Toast;
 import android.os.Environment;
 import android.Permissions;
-import lime.app.Application;
-import haxe.io.Path;
 import lime.app.Application;
 import haxe.io.Path;
 #end
@@ -40,7 +39,7 @@ class SUtil
 		var daPath:String = '';
 
 		#if android
-		daPath = Environment.getExternalStorageDirectory() + '/.' + Application.current.meta.get('file');
+		daPath = Path.addTrailingSlash(Environment.getExternalStorageDirectory() + '/.' + Application.current.meta.get('file'));
 		#elseif ios
 		daPath = LimeSystem.documentsDirectory;
 		#end
